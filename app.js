@@ -42,7 +42,7 @@ const ratelimiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 3000 })
 app.use(ratelimiter)
 
 //mongodb database connection
-const connection_uri = "mongodb://localhost:27017/Todo"
+const connection_uri = process.env.CONNECTION_STRING
 
 let OPTION = { user: '', pass: '', autoIndex: true }
 
