@@ -155,11 +155,14 @@ exports.UpdateProfile = asyncHandler(async (req, res) => {
     const result = await ProfileModel.updateOne({ UserName: UserName }, { $set: req.body }, { upsert: true })
 
     if (result) {
-        res.status(204).json({ status: "updated", data: result })
-
+        res.status(200).json({ msg: "updated" })
     } else {
-        res.status(401)
-        throw new Error({ 'status': "fail", 'msg': "updated failed" })
+
+        res.status(401).json({ msg: "not updated" })
+
     }
+
+
+
 
 })
